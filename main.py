@@ -2,7 +2,8 @@ import logging
 import sqlite3
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardMarkup
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, MessageHandler, filters, ContextTypes
-from datetime import datetime
+import os
+import time
 
 # Настройка логирования
 logging.basicConfig(
@@ -513,11 +514,14 @@ def main():
         
         print("✅ Бот запущен...")
         print("🤖 Ищите бота в Telegram по username")
+        
+        # Убираем input() для облачной среды
         application.run_polling()
         
     except Exception as e:
         print(f"❌ Критическая ошибка: {e}")
-        input("Нажмите Enter для выхода...")
+        # Убираем input() для облачной среды
+        time.sleep(5)  # Пауза чтобы увидеть ошибку
 
 if __name__ == '__main__':
     main()
