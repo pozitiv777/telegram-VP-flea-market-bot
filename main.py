@@ -489,4 +489,5 @@ class FleaMarketBot:
             
             await update.message.reply_text(stats_text)
         except Exception as e:
-            logger.error(f"Ошибка в admin_stat
+            logger.error(f"Ошибка в admin_stat:{e}2")
+
